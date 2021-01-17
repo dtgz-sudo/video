@@ -111,6 +111,8 @@ public class VideoProcessing {
     private int getThreadLength() {
         int cpuCount =Runtime.getRuntime().availableProcessors();
         int i = 2 * cpuCount + 1;
+        ta.append("CPU数量：" + cpuCount+ ",线程数量:"+i);
+        ta.append("\r\n");
         return  i;
     }
 
