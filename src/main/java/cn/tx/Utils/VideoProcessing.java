@@ -35,7 +35,7 @@ public class VideoProcessing {
         //多线程处理 files 集合
         // 50个线程同时处理
         List<VideoThread> threadList = new ArrayList<>();
-        int Threadlength = 50; // 线程数量
+        int Threadlength = getThreadLength(); // 线程数量
         int lengthOfFiles = files.size();//视频数量
         int length = lengthOfFiles / Threadlength; // 一个线程处理的文件数量
         int iOfTFiles = 0;// files文件
@@ -106,6 +106,12 @@ public class VideoProcessing {
         ta.append("程序一共使用：" + ( ( System.currentTimeMillis() - date1.getTime() ) ) + "毫秒");
         ta.append("\r\n");
 
+    }
+
+    private int getThreadLength() {
+        int cpuCount =Runtime.getRuntime().availableProcessors();
+        int i = 2 * cpuCount + 1;
+        return  i;
     }
 
 
