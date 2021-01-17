@@ -9,7 +9,7 @@ import java.io.File;
 public class Main extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
-    private String path;
+    private String path="C:\\";
 
     JButton btn = null;
 
@@ -50,7 +50,7 @@ public class Main extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser(new File(path));
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.showDialog(new JLabel(), "选择");
         File file = chooser.getSelectedFile();
@@ -61,6 +61,7 @@ public class Main extends JFrame implements ActionListener {
                 path = absoluteFile.toString();
                 textArea.append(path);
                 textArea.append("\r\n");
+                // 文本框显示选取路径
                 textField.setText(path);
                 System.out.println(path);
                 VideoProcessing videoProcessing = new VideoProcessing(path,textArea);

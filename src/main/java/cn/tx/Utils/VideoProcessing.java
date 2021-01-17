@@ -3,10 +3,11 @@ package cn.tx.Utils;
 import cn.tx.model.Video;
 import org.apache.commons.io.FilenameUtils;
 
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.File;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 /**
  * -Xmx8096m -Xms512m
@@ -73,10 +74,13 @@ public class VideoProcessing {
         }
 
         System.out.println("读取视频文件一共使用：" + ( System.currentTimeMillis() - date3.getTime() ) + "毫秒");
-        System.out.println("EXCEL绝对地址为:" + System.getProperty("user.dir") + "\\" + targetFilePath + ".xlsx");
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        File com=fsv.getHomeDirectory();    //这便是读取桌面路径的方法了
+        String deskPath = com.getPath();
+        System.out.println("EXCEL绝对地址为:" + deskPath + "\\" + targetFilePath + ".xlsx");
         ta.append("读取视频文件一共使用：" + ( System.currentTimeMillis() - date3.getTime() ) + "毫秒");
         ta.append("\r\n");
-        ta.append("EXCEL绝对地址为:" + System.getProperty("user.dir") + "\\" + targetFilePath + ".xlsx");
+        ta.append("EXCEL绝对地址为:" + deskPath + "\\" + targetFilePath + ".xlsx");
         ta.append("\r\n");
         Date date4 = new Date();
         //System.out.println(list);
@@ -93,7 +97,7 @@ public class VideoProcessing {
         ta.append("排序的时间：" + ( ( System.currentTimeMillis() - date4.getTime() ) ) + "毫秒");
         ta.append("\r\n");
         Date date5 = new Date();
-        poiUtils.writeExcel(System.getProperty("user.dir") + "\\" + targetFilePath + ".xlsx", list);
+        poiUtils.writeExcel(deskPath + "\\" + targetFilePath + ".xlsx", list);
 
         System.out.println("向Excel文件写入数据一共使用：" + ( ( System.currentTimeMillis() - date5.getTime() ) ) + "毫秒");
         System.out.println("程序一共使用：" + ( ( System.currentTimeMillis() - date1.getTime() ) ) + "毫秒");
