@@ -13,7 +13,7 @@ import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VoidUtils {
+public class VoidUtilsByIt {
     public static void main(String[] args){
         File source = new File("http://flv4.people.com.cn/videofile3//CCTV1/2018/1/14/CCTV1_1500000_20181114_30322514_0_113_android_l.mp4");
         Encoder encoder = new Encoder();

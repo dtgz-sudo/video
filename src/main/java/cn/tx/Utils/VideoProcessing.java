@@ -28,7 +28,10 @@ public class VideoProcessing {
         length = files.size();
 
         System.out.println("查找视频文件一共使用：" + ( System.currentTimeMillis() - date1.getTime() ) + "毫秒");
+        System.out.println("视频数量：" +length);
         ta.append("查找视频文件一共使用：" + ( System.currentTimeMillis() - date1.getTime() ) + "毫秒");
+        ta.append("\r\n");
+        ta.append("视频数量：" +length);
         ta.append("\r\n");
         Date date3 = new Date();
 

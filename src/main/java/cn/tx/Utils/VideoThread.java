@@ -1,7 +1,6 @@
 package cn.tx.Utils;
 
 import cn.tx.model.Video;
-import it.sauronsoftware.jave.Encoder;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -11,53 +10,63 @@ import java.util.*;
 public class VideoThread extends Thread {
     //public static AtomicInteger i = new AtomicInteger();
     //static AtomicInteger i = new AtomicInteger();
-    private    int i = 0;
+    private int i = 0;
 
-    // 视频解码类
-    private static Encoder encoder = new Encoder();
-    //   视频处理类
-    private it.sauronsoftware.jave.MultimediaInfo m = null;
+    //    // 视频解码类
+//    private static Encoder encoder = new Encoder();
+//    //   视频处理类
+//    private it.sauronsoftware.jave.MultimediaInfo m = null;
     private int length = 0;
-    private volatile List<Video> list = new Vector<>();
-    private List<File> files =new ArrayList<>();
+    private volatile List<Video> list = null;
+    private List<File> files = new ArrayList<>();
+    // 线程静态锁
+    private static Object object = new Object();
 
 
     @Override
     public void run() {
         super.run();
-            // System.out.println(this.getName() + " 开始工作");
+        // System.out.println(this.getName() + " 开始工作");
         length = files.size();
-            for (; i < length; i++) {
+        String name = "";
+        double size = 0l;
+        //       System.out.println(name + ":" + size + "Mb");
+        String path = "";
+        long ls = 0;
+        Date date = new Date(ls);
+        DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT-0"));
+        String time = formatter.format(ls);
+        for (; i < length; i++) {
 
-                File file = files.get( i);
-                {
-                    try {
-                   //     System.out.println(i.get());
-                    String name = file.getName();
-                    double size = file.length() * 1.0 / 1024 / 1024;
+            File file = files.get(i);
+            {
+                try {
+                    //     System.out.println(i.get());
+                    name = file.getName();
+                    size = file.length() * 1.0 / 1024 / 1024;
                     //       System.out.println(name + ":" + size + "Mb");
-                    m = encoder.getInfo(file);
-                    long ls = m.getDuration();
-                    Date date = new Date(ls);
-                    DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+                    path = file.getAbsolutePath();
+                   // ls = VideoUtil.getDuration(path);
+                    date = new Date(ls);
                     formatter.setTimeZone(TimeZone.getTimeZone("GMT-0"));
-                    String time = formatter.format(ls);
+                    time = formatter.format(ls);
                     Video video = new Video(name, (int) Math.round(size), time);
 
-                    synchronized (encoder)
-                    {
+                    synchronized (object) {
                         list.add(video);
+                        //System.out.println(ObjectSize.getSizeOf(list));
+                        System.out.println(this.getName() + " : " + i + video);
                     }
-                 //  System.out.println(this.getName() + " : " +i+video);
+
 //                    System.out.println(video);
 //                    System.out.println();
 //                    System.out.println();
-                    } catch (Exception e) {
-                        System.out.println(this.getName()+e.getMessage());
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-
+        }
 
 
     }
@@ -67,6 +76,7 @@ public class VideoThread extends Thread {
         this.length = length;
         this.list = list;
     }
+
     public List<File> getFiles() {
         return files;
     }
