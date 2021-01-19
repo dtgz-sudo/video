@@ -6,7 +6,11 @@ import com.coremedia.iso.IsoFile;
 
 import java.io.IOException;
 
-
+/**
+ * 跨平台 兼容行较好
+ * 性能极差
+ *
+ */
 public class VideoUtil {
 
 
@@ -17,8 +21,8 @@ public class VideoUtil {
      */
     public static long getMp4Duration(String videoPath) throws IOException {
         IsoFile isoFile = new IsoFile(videoPath);
-        long lengthInSeconds =
-                isoFile.getMovieBox().getMovieHeaderBox().getDuration();
+       long lengthInSeconds =isoFile.getMovieBox().getMovieHeaderBox().getDuration();
+       System.gc();
         return lengthInSeconds;
     }
 

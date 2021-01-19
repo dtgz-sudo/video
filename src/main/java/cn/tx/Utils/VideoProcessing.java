@@ -113,7 +113,7 @@ public class VideoProcessing {
 
     private int getThreadLength() {
         int cpuCount =Runtime.getRuntime().availableProcessors();
-        int i = 2 * cpuCount + 1;
+        int i = cpuCount *2+1;
         ta.append("CPU数量：" + cpuCount+ ",线程数量:"+i);
         ta.append("\r\n");
         return  i;
@@ -143,10 +143,12 @@ public class VideoProcessing {
                     if ( files1 != null ) //文件夹不为空
                     {
                         for (int i = 0; i < files1.length; i++) {
+
                             if ( file.isDirectory() ) {
                                 findVedio(files, files1[i]);
                             } else if ( isVedeo(files1[i]) ) {
                                 files.add(files1[i]);
+                                System.out.println(files1[i]);
                             }
                         }
                     }

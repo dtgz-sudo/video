@@ -47,16 +47,15 @@ public class VideoThread extends Thread {
                     size = file.length() * 1.0 / 1024 / 1024;
                     //       System.out.println(name + ":" + size + "Mb");
                     path = file.getAbsolutePath();
-                   // ls = VideoUtil.getDuration(path);
+                    ls = Read.ReadVideoTime(path);
                     date = new Date(ls);
                     formatter.setTimeZone(TimeZone.getTimeZone("GMT-0"));
                     time = formatter.format(ls);
                     Video video = new Video(name, (int) Math.round(size), time);
-
+                    System.out.println(this.getName() + " : " + i + video);
                     synchronized (object) {
                         list.add(video);
                         //System.out.println(ObjectSize.getSizeOf(list));
-                        System.out.println(this.getName() + " : " + i + video);
                     }
 
 //                    System.out.println(video);
