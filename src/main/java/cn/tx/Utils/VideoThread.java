@@ -11,7 +11,7 @@ public class VideoThread extends Thread {
     //public static AtomicInteger i = new AtomicInteger();
     //static AtomicInteger i = new AtomicInteger();
     private int i = 0;
-
+    private  static  int count  = 0;// 处理的视频的个数
     //    // 视频解码类
 //    private static Encoder encoder = new Encoder();
 //    //   视频处理类
@@ -52,10 +52,11 @@ public class VideoThread extends Thread {
                     formatter.setTimeZone(TimeZone.getTimeZone("GMT-0"));
                     time = formatter.format(ls);
                     Video video = new Video(name, (int) Math.round(size), time);
-                    System.out.println(this.getName() + " : " + i + video);
                     synchronized (object) {
                         list.add(video);
                         //System.out.println(ObjectSize.getSizeOf(list));
+
+                        System.out.println(this.getName() + " : " + count++ + video);
                     }
 
 //                    System.out.println(video);
@@ -66,7 +67,7 @@ public class VideoThread extends Thread {
                 }
             }
         }
-
+        System.out.println(this.getName() + " 完成任务");
 
     }
 

@@ -4,7 +4,6 @@ import org.junit.Test;
 public class MultimediaInfoTest {
 
     @Test
-
     public  void main() {
         Read r=new Read();
 
