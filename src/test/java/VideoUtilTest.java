@@ -1,10 +1,11 @@
 import cn.tx.Utils.VideoUtil;
+import org.junit.Test;
 
 import java.io.IOException;
 
 public class VideoUtilTest {
 
-
+    @Test
     public void getDuration() throws IOException {
         String path = "D:\\JAVAEE+大数据基础\\教学视频\\Hadoop大数据阶段/001、大数据技术领域介绍及学习方法和发展规划 - 副本.mp4" ;
       /*  String path = "/Users/liuwen/Downloads/temp/语音测试文件/xiaoshizi.mp4" ;

@@ -21,7 +21,7 @@ public class PressureTest {
         Date date1 = new Date();
        // files = getAllFile();
         files = new Vector<>();
-        for(int i = 0 ;i<100;i++)
+        for(int i = 0 ;i<1000;i++)
         {
             files.add(new File(path));
         }
@@ -91,11 +91,6 @@ public class PressureTest {
             }
         });
         System.out.println("排序的时间：" + ( ( System.currentTimeMillis() - date4.getTime() ) ) + "毫秒");
-        Date date5 = new Date();
-        poiUtils.writeExcel(deskPath + "\\" + targetFilePath + ".xlsx", list);
-
-        System.out.println("向Excel文件写入数据一共使用：" + ( ( System.currentTimeMillis() - date5.getTime() ) ) + "毫秒");
-        System.out.println("程序一共使用：" + ( ( System.currentTimeMillis() - date1.getTime() ) ) + "毫秒");
 
     }
 

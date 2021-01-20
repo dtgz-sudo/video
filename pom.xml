@@ -39,17 +39,17 @@
 <!--            <systemPath>${project.basedir}/src/main/resources/lib/jave-1.0.2.jar</systemPath>-->
 <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.3.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>commons-codec</groupId>-->
+<!--            <artifactId>commons-codec</artifactId>-->
+<!--            <version>1.10</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.httpcomponents</groupId>-->
+<!--            <artifactId>httpclient</artifactId>-->
+<!--            <version>4.3.1</version>-->
+<!--        </dependency>-->
 
 <!--        <dependency>-->
 <!--            <groupId>org</groupId>-->
@@ -57,17 +57,17 @@
 <!--            <version>2.0.1</version>-->
 <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org/jaudiotagger -->
-        <dependency>
-            <groupId>org</groupId>
-            <artifactId>jaudiotagger</artifactId>
-            <version>2.0.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org</groupId>-->
+<!--            <artifactId>jaudiotagger</artifactId>-->
+<!--            <version>2.0.1</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.googlecode.mp4parser</groupId>
-            <artifactId>isoparser</artifactId>
-            <version>1.1.22</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.googlecode.mp4parser</groupId>-->
+<!--            <artifactId>isoparser</artifactId>-->
+<!--            <version>1.1.22</version>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>

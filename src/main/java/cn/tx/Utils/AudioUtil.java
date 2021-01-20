@@ -9,6 +9,9 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import java.io.File;
 
+/**
+ * 不跨平台 性能一般
+ */
 public class AudioUtil {
 
 
