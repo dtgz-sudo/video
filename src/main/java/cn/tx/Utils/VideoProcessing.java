@@ -11,6 +11,7 @@ import java.util.*;
 
 /**
  * -Xmx8096m -Xms512m
+ *  根据GUI提供的页面 分析视频
  */
 public class VideoProcessing {
     // 视频所在目录

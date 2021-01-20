@@ -21,7 +21,7 @@ public class PressureTest {
         Date date1 = new Date();
        // files = getAllFile();
         files = new Vector<>();
-        for(int i = 0 ;i<1000;i++)
+        for(int i = 0 ;i<100;i++)
         {
             files.add(new File(path));
         }
@@ -101,7 +101,10 @@ public class PressureTest {
 
     private int getThreadLength() {
         int cpuCount =Runtime.getRuntime().availableProcessors();
-        int i = cpuCount *2+1;
+        int i = cpuCount *2
+
+
+                +1;
         return  i;
     }
 
